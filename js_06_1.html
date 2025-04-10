@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li.done{
+            color: gray;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 마우스를 올리면 텍스트 변경 -->
+    <p id="hoverText" onmouseover="changeText(true)" onmouseout="changeText(false)">여기에 마우스를 올려보세요!</p>
+    <script>
+        function changeText(flag) {
+            if (flag) {
+                document.getElementById("hoverText").innerText = "마우스를 올렸습니다!";
+            } else {
+                document.getElementById("hoverText").innerText = "마우스를 내렸습니다!";
+            }
+        }
+    </script>
+
+    <img src="/img/img_3.png" width="200" id="hoverImage" onmouseover="changeImg(true)" onmouseout="changeImg(false)">
+    <script>
+        function changeImg(anton) {
+            if (anton) {
+                document.getElementById("hoverImage").src="/img/img_4.png";
+            } else {
+                document.getElementById("hoverImage").src="/img/img_3.png";
+            }
+        }
+    </script>
+    <button onclick="changeRandomColor()">배경 색 변경</button>
+    <script>
+        function changeRandomColor() {
+            let colors = ["beige", "lightgreen", "navy", "darkgreen", "lightblue"];
+            let randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+
+        }
+    </script>
+
+    <!-- 마우스 이동 좌표 표시 -->
+    <p id="cur">마우스 이동</p>
+    <script>
+        document.addEventListener("mousemove", function (event) {
+            document.getElementById("cur").innerText =
+                `X : ${event.clientX}, Y : ${event.clientY}`;
+        })
+    </script>
+
+    <!-- 리스트 항목 더블 클릭 시 삭제 -->
+    <ul id="mylist">
+        <li ondblclick="removeItem(this)">찹쌀밥</li>
+        <li ondblclick="removeItem(this)">꽃떡국</li>
+        <li ondblclick="removeItem(this)">볼어묵볶음</li>
+        <li ondblclick="removeItem(this)">족발야채무침</li>
+        <li ondblclick="removeItem(this)">아망치샐러드</li>
+    </ul>
+    <script>
+        function removeItem(element) {
+            element.remove();
+        }
+    </script>
+
+    <!-- 사용자 입력값을 리스트에 추가 -->
+    <input type="text" id="userInput">
+
+    <button onclick="addToList()">추가</button>
+    <ul id="itemList">
+        <li class=.done>안녕하세요!</li>
+    </ul>
+    <script>
+        function addToList() {
+            let input = document.getElementById("userInput").value;
+            if (input.trim() !== "") {
+                let li = document.createElement("li");
+                let span = document.createElement;
+                span.innerText = input;
+                //li.setAttribute("ondblclick", "removeItem(this)");
+                li.addEventListener("click", function() {
+                    //if(li.classList.contains("done")) {
+                    //    lif.classList.remove("done");
+                    //} else {
+                    //    li.classList.add("done");
+                    //}
+                    li.classList.toggle("done");
+                });
+                li.addEventListener("dbclick", function() {
+                    const newValue = prompt("수정할 내용을 입력하세요.");
+                    if(newValue.trim() != "") {
+                        li.innerText = newValue;
+                    }
+                });
+                document.getElementById("itemList").appendChild(li)
+                // ul 자식 요소 넣기, 자식 2 요소 넣기 /ul
+
+                document.getElementById("userInput").value = "";
+            }
+        }
+
+        const array = [];
+        const userInfo = { name: '기태연', age: 100 };
+        console.log(userInfo);
+        console.log(userInfo.name);
+        console.log(userInfo.age);
+        console.log("JSON 값 : ", JSON.stringify(userInfo));
+
+        const savedUser = JSON.parse(localStorage.getItem('user'));
+        console.log(savedUser.age);
+    </script>
+</body>
+
+</html>

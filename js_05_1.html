@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <buttom onclick="alert('버튼이 클릭되었습니다.')">클릭하세요</buttom>
+
+    <ul>
+        <li onclick="showAlert(this)">안녕하세요</li>
+        <li onclick="alert('안녕하세요 을(를) 클릭했어요!')">안녕하세요</li>
+        <li onclick="alert('반갑습니다 을(를) 클릭했어요!')">반갑습니다</li>
+        <li onclick="alert('다시만나요 을(를) 클릭했어요!')">다시만나요</li>
+    </ul>
+
+    <script>
+        function showAlert(element) {
+            const content = element.textContent;
+            alert('${content} 을(를) 클릭했어요!');
+        }
+    </script>
+
+    <ul id="result">
+        <li onclick="changeBg('green')">Green</li>
+        <li onclick="changeBg('orange')">Orange</li>
+        <li onclick="changeBg('purple')">Purple</li>
+    </ul>
+
+    <script>
+        function changeBg(color) {
+            const ulElement = document.querySelector("#result");
+            ulElement.style.backgroundColor = color;
+        }
+    </script>
+
+    <p id="counter">0</p>
+    <button onclick="up()">+</button>
+    <button onclick="down()">-</button>
+    <script>
+        let count = 0;
+        function up() {
+            count++;
+            document.getElementById("counter").innerText = count;
+        } function down() {
+            count--;
+            document.getElementById("counter").innerText = count;
+        }
+    </script>
+</body>
+</html>

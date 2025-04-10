@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const num1 = Number(prompt("첫 번째 숫자를 입력하세요:"));
+        const num2 = Number(prompt("두 번째 숫자를 입력하세요:"));
+        
+        if (num1 >= 10 && num1 < 40 && num2 >= 10 && num2 < 40) {
+            alert("맞습니다.");
+        } else if ((num1 >= 10 && num1 < 40) || (num2 >= 10 && num2 < 40)) {
+            alert("하나만 조건에 맞습니다.");
+        } else {
+            alert("아닙니다.");
+        }        
+    </script>
+</body>
+</html>

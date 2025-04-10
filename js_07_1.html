@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="numInput">
+    <button onclick="addNumber()">추가</button>
+    <button onclick="findMax()">최댓값</button>
+    <ul id="numberList"></ul>
+    <p id="maxResult"></p>
+
+<script>
+    let numbers = [];
+
+    function addNumber() {
+        let num = Number(document.getElementById("numInput").value);
+        if (!num) return; // 숫자가 아니면 추가하지 않음
+
+        numbers.push(num);
+
+        let li = document.createElement("li"); // <li> 요소 생성
+        li.textContent = num;
+        document.getElementById("numberList").appendChild(li); // 목록에 추가
+
+        document.getElementById("numInput").value = ""; // 입력 필드 초기화
+    }
+
+    function findMax() {
+        let max = numbers.length ? Math.max(...numbers) : "숫자를 입력하세요!";
+        document.getElementById("maxResult").innerText = `최댓값: ${max}`;
+    }
+</script>
+
+</body>
+</html>

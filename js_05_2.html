@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br><br><br>
+    <button onclick="hideElement()">숨기기</button>
+    <button onclick="showElement()">보여주기</button>
+    <div id="box" style="width: 100px; height: 100px; background-color: crimson;"></div>
+
+    <script>
+        function hideElement() {
+            document.getElementById("box").style.display = "none";
+        }
+        function showElement() {
+            document.getElementById("box").style.display = "block";
+        }
+    </script>
+</body>
+</html>
