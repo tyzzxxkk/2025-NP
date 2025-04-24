@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function testVar() {
+            var x = 10;
+            if(true) {
+                var y = 20;
+                console.log("if문 안 : ", x); // 10
+            }
+            console.log("if문 밖 y : ", y) // 20 (블록 '{}'을 무시하고 접근 가능)
+        }
+        testVar();
+
+        console.log("함수 밖 y : ", typeof y); //undefined (y는 함수 내에서만 존재)
+
+        function testVarScope() {
+            var i = 100;
+            for(var i = 0; i < 3; i++) {
+                console.log("for문 안 : ", i); // 0, 1, 2
+            }
+            console.log("for문 밖 : ", i); // 3 (i가 함수 내부에서 덮어쓰기됨)
+        }
+        testVarScope();
+    </script>
+</body>
+</html>
